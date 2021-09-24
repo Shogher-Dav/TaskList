@@ -1,0 +1,34 @@
+<div class="task">
+    <div class="task-container">
+        <form [formGroup]="taskFormGroup">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your Name</mat-label>
+                    <input matInput formControlName="username" required>
+                    <mat-error *ngIf="taskFormGroup.controls['username'].invalid">User name is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="pat@example.com" formControlName="email" required>
+                    <mat-error *ngIf="taskFormGroup.get('email')?.hasError('required')">Email is requeired</mat-error>
+                    <mat-error *ngIf="taskFormGroup.get('email')?.hasError('email')">
+                        Email is wrong
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter task</mat-label>
+                    <textarea matInput formControlName="text" required></textarea>
+                    <mat-error *ngIf="taskFormGroup.controls['text'].invalid">Text is requeried</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+        <button mat-raised-button color="primary" class="add-btn" [disabled]="!taskFormGroup.valid"
+            (click)="creatNewTask()">Add task</button>
+            <!-- <button *ngIf="isAuth" mat-raised-button color="primary" class="add-btn" [disabled]="!taskFormGroup.valid"
+            (click)="updateTask()">Update task</button> -->
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.task-list {
+  &-container {
+
+    width: 70%;
+    margin: 0 auto;
+
+    .header {
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+      margin: 10% 0;
+    }
+  }
+
+  .create-btn {
+    margin-bottom: 50px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .login-btn {
+    float: right;
+  }
+
+}
